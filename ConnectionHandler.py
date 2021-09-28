@@ -1,10 +1,7 @@
 # ConnectHandler
-# ssh usr = mathias, pass = cisco
-# privileged pass = class
-from netmiko import Netmiko
-from getpass import getpass
+# this class handles the connection to the different devices
 from netmiko import ConnectHandler
-
+# dictionary that holds the routers login information
 router = {
     'host': "192.168.1.1",
     'username': "mathias",
@@ -14,5 +11,6 @@ router = {
 }
 
 
+# method to return a connection handler to the router
 def con():
     return ConnectHandler(**router)
