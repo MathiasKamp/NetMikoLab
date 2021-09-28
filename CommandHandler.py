@@ -57,7 +57,8 @@ def change_hostname(hostname):
         con.enable()
         con.config_mode()
         con.send_command(f"hostname {hostname}", expect_string=r"#")
-        exit_to_user_mode(con)
+        # below function don't work
+        #exit_to_user_mode(con)
     finally:
         con.disconnect()
 

@@ -20,9 +20,8 @@ monitoring_options = {
 
 # dictionary for device options
 device_options = {
-    1: 'Router configuration',
-    2: 'Switch configuration',
-    3: 'Go to main menu'
+    1: 'Device configuration',
+    2: 'Go to main menu'
 }
 
 # dictionary for basis options
@@ -71,14 +70,6 @@ def print_main_menu():
     print_menu(main_menu_options)
 
 
-def main_menu_option_router_configuration():
-    print_menu(basis_option)
-
-
-def main_menu_option_switch_configuration():
-    print_menu(basis_option)
-
-
 def basis_options_change_hostname(hostname):
     CommandHandler.change_hostname(hostname)
 
@@ -113,3 +104,7 @@ def start_traffic_monitor():
 
 def start_trap_monitor():
     TrapListener.RunTrap()
+
+
+def print_device_configuration_options():
+    print_menu(basic_configuration_options)
