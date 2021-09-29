@@ -6,11 +6,10 @@ import TrapListener
 
 # dictionary for main menu options
 main_menu_options = {
-    1: 'Configuration',
-    2: 'Monitoring',
+    1: 'Device options',
+    2: 'Device monitoring',
     3: 'Exit program'
 }
-
 # dictionary for monitoring options
 monitoring_options = {
     1: 'network traffic listener',
@@ -21,12 +20,6 @@ monitoring_options = {
 # dictionary for device options
 device_options = {
     1: 'Device configuration',
-    2: 'Go to main menu'
-}
-
-# dictionary for basis options
-basis_option = {
-    1: 'Basic configurations',
     2: 'Show commands',
     3: 'Go to main menu'
 }
@@ -47,7 +40,8 @@ show_commands = {
     3: 'show vlan interfaces',
     4: 'Show ip interfaces',
     5: 'Write your own show command',
-    6: 'Go to main menu'
+    6: 'Show version',
+    7: 'Go to main menu'
 }
 
 
@@ -70,7 +64,7 @@ def print_main_menu():
     print_menu(main_menu_options)
 
 
-def basis_options_change_hostname(hostname):
+def change_hostname(hostname):
     CommandHandler.change_hostname(hostname)
 
 
@@ -84,10 +78,6 @@ def create_ssh_user(username, password):
 
 def add_ip_add_to_interface(interface, ip_add, subnet):
     CommandHandler.add_ip_add_to_interface(interface, ip_add, subnet)
-
-
-def get_running_config():
-    CommandHandler.get_running_config()
 
 
 def print_show_commands():
@@ -108,3 +98,27 @@ def start_trap_monitor():
 
 def print_device_configuration_options():
     print_menu(basic_configuration_options)
+
+
+def get_arp():
+    return CommandHandler.get_arp()
+
+
+def get_with_user_defined_command(custom_command):
+    return CommandHandler.get_with_user_defined_command(custom_command)
+
+
+def get_ip_interfaces():
+    return CommandHandler.get_ip_interfaces()
+
+
+def get_vlan_interfaces():
+    return CommandHandler.get_vlan_interfaces()
+
+
+def get_version():
+    return CommandHandler.get_version()
+
+
+def get_running_config():
+    CommandHandler.get_running_config()

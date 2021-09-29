@@ -19,7 +19,7 @@ if __name__ == '__main__':
         except ValueError:
             print("Wrong input. Please enter a number")
 
-        if user_option == 1:
+        if user_option == 1:  # user choose device options
             cls()
             MenuHandler.print_device_options()
             user_option = int(input("Enter your choice:"))
@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
                 if user_option == 1:  # user choose to change hostname
                     hostname = input("Enter hostname:")
-                    MenuHandler.basis_options_change_hostname(hostname)
+                    MenuHandler.change_hostname(hostname)
                     cls()
 
                 elif user_option == 2:  # user choose to create a new ssh user with full privileges
@@ -61,7 +61,53 @@ if __name__ == '__main__':
                     cls()
                     print("returning..")
                     continue
-            elif user_option == 2:
+            elif user_option == 2:  # user choose show commands
+                cls()
+                MenuHandler.print_show_commands()
+                user_option = int(input("enter your choice:"))
+                if user_option == 1:  # user choose running config
+                    cls()
+                    MenuHandler.get_running_config()
+                    #  show the running-config
+                    time.sleep(3)
+                    cls()
+
+                elif user_option == 2:  # user choose to see arp
+                    cls()
+                    MenuHandler.get_arp()
+                    time.sleep(3)
+                    cls()
+
+                elif user_option == 3:  # user choose to see the vlan interfaces
+                    cls()
+                    MenuHandler.get_vlan_interfaces()
+                    time.sleep(3)
+                    cls()
+
+                elif user_option == 4:  # user choose to see the ip interfaces
+                    cls()
+                    MenuHandler.get_ip_interfaces()
+                    time.sleep(3)
+                    cls()
+
+                elif user_option == 5:  # user choose to insert their own show command
+                    cls()
+                    custom_command = input("Please enter your custom show command:")
+                    MenuHandler.get_with_user_defined_command(custom_command)
+                    time.sleep(3)
+                    cls()
+
+                elif user_option == 6:  # user choose to see the version of the device
+                    cls()
+                    MenuHandler.get_version()
+                    time.sleep(3)
+                    cls()
+
+                elif user_option == 7:  # user choose to quit
+                    cls()
+                    continue
+
+            elif user_option == 3:  # user choose to go back to main menu
                 cls()
                 continue
 
@@ -86,7 +132,6 @@ if __name__ == '__main__':
             elif user_option == 3:
                 cls()
                 continue
-
 
         elif user_option == 3:  # user choose to exit program
             print("closing program")

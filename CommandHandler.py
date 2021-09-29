@@ -57,8 +57,8 @@ def change_hostname(hostname):
         con.enable()
         con.config_mode()
         con.send_command(f"hostname {hostname}", expect_string=r"#")
-        # below function don't work
-        #exit_to_user_mode(con)
+        #  below function don't work
+        #  exit_to_user_mode(con)
     finally:
         con.disconnect()
 
@@ -165,5 +165,3 @@ def get_vlan_interfaces():
 # this method runs the show version command
 def get_version():
     return run_show_command("show version")
-
-
